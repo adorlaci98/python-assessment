@@ -6,13 +6,6 @@ import json
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
-# Create the Tkinter root window
-root = Tk()
-root.withdraw()  
-
-# Prompt the user to choose the input .json file
-file_path = askopenfilename()
-
 def Generate_Picture(picname):
     x_values2 = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000]
     y_values2 = [320, 300, 260, 200, 151, 120, 95, 80]
@@ -48,9 +41,14 @@ def Generate_plot(source_data, output_pic, slide):
             plt.savefig(output_pic)
             plt.close()
 
-# Reading the configuration file here
+# Create the Tkinter root window
+root = Tk()
+root.withdraw()  
 
-########################### Prompting the user here to select a folder
+# Prompt the user to choose the input .json file
+file_path = askopenfilename()
+
+# Reading the configuration file here
 with open(file_path) as file:
     dict = json.load(file)
 
